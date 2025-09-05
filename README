@@ -13,4 +13,6 @@ Igual el js compilado es facil de entender porque no use al parecer nada muy com
 tipos. 
 
 Tambien cabe destacar que el mapeo entre regiones y comunas no esta completo, 
-asi mismo las imagenes son simplemente una foto de un color del tamaño en pixeles pedido para agilizar el desarrollo
+asi mismo las imagenes son simplemente una foto de un color del tamaño en pixeles generado en js mismo y pasado como un string 
+con el encoding correspondiente
+
