@@ -12,4 +12,5 @@ De todas formas dejo el tsconfig.json por si alguien quisiera compilar. Basta co
 Igual el js compilado es facil de entender porque no use al parecer nada muy complejo de typescript mas que interfaces y sus 
 tipos. 
 
-Tambien cabe destacar que el mapeo entre regiones y comunas no esta completo. 
+Tambien cabe destacar que el mapeo entre regiones y comunas no esta completo, 
+asi mismo las imagenes son simplemente una foto de un color del tamaño en pixeles pedido para agilizar el desarrollo
