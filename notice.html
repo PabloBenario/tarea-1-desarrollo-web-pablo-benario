@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Notice Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="styles.css" rel="stylesheet">
+  <script src="data.js" defer></script>
+  <script src="notice.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">Adopt-a-Pet (Prototype)</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="list.html">Back to listing</a>
+      </nav>
+    </header>
+
+    <div id="content" class="card"></div>
+  </div>
+
+  <div class="modal" id="img-modal" role="dialog" aria-modal="true" aria-labelledby="img-title">
+    <div class="modal-card">
+      <img
+        id="img-large"
+        alt="Large preview"
+        src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+        width="800"
+        height="600"> 
+      <div class="modal-actions">
+        <span id="img-title" style="color:#fff;">Click Close to return</span>
+        <button class="btn" id="img-close">Close</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

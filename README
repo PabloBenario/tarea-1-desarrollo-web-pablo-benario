@@ -1,0 +1,15 @@
+Este es el repo para la tarea 1 de desarrollo web.
+
+Para correr este proyecto basta con correr el archivo index.html con algun navegador.
+
+La pagina esta en ingles, esto lo hice para mejorar mi ingles.
+
+Lo hice con typescript y esto lo transpile compile a javascript. Para correr el proyecto no hace falta ninguna dependencia
+de node ni nada. 
+
+De todas formas dejo el tsconfig.json por si alguien quisiera compilar. Basta con tener tsc instalado y correr tsc y listo.
+
+Igual el js compilado es facil de entender porque no use al parecer nada muy complejo de typescript mas que interfaces y sus 
+tipos. 
+
+Tambien cabe destacar que el mapeo entre regiones y comunas no esta completo. 

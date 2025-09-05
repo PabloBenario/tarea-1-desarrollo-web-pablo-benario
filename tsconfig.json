@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "ESNext",               
+    "lib": ["ES2017", "DOM"],
+    "outDir": ".",                    
+    "strict": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": false
+  },
+  "files": [
+    "data.ts",
+    "index.ts",
+    "list.ts",
+    "notice.ts",
+    "form.ts"
+  ]
+}

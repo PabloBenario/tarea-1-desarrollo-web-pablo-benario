@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Add Adoption Notice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="styles.css" rel="stylesheet">
+  <script src="data.js" defer></script>
+  <script src="form.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">Adopt-a-Pet (Prototype)</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="list.html">Show listing</a>
+        <a href="stats.html">Statistics</a>
+      </nav>
+    </header>
+
+    <h1>Add an adoption notice</h1>
+    <p class="muted">hi</p>
+
+    <div id="error-panel" class="errors" style="display:none;">
+      <strong>Please fix the following:</strong>
+      <ul id="error-list"></ul>
+    </div>
+
+    <form id="adoption-form" novalidate>
+      <fieldset>
+        <legend>Drop-off location</legend>
+        <div class="grid grid-2">
+          <div>
+            <label for="region">Region <span class="small">(16 regions of Chile)</span></label>
+            <select id="region" name="region"></select>
+            <div class="helper">Obligatory.</div>
+          </div>
+          <div>
+            <label for="commune">Commune</label>
+            <select id="commune" name="commune" disabled></select>
+            <div class="helper">Obligatory. Options depend on region.</div>
+          </div>
+          <div class="grid-span">
+            <label for="sector">Sector (max 100 chars)</label>
+            <input type="text" id="sector" name="sector" maxlength="100" placeholder="e.g., Beauchef 850, terraza">
+            <div class="helper">Max length 100.</div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Contact for this notice</legend>
+        <div class="grid grid-2">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Full name">
+            <div class="helper">Obligatory, 3–200 characters.</div>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" maxlength="100">
+            <div class="helper">Obligatory. Simple email regex, max length 100.</div>
+          </div>
+          <div>
+            <label for="cell">Cellphone</label>
+            <input type="text" id="cell" name="cell" placeholder="+569.12345678">
+            <div class="helper">Format: <code>+NNN.NNNNNNNN</code>, e.g., <code>+569.12345678</code>. Obligatory.</div>
+          </div>
+          <div>
+            <label for="contact-method">Preferred method of contact</label>
+            <select id="contact-method" name="contact-method">
+              <option value="">Select one…</option>
+              <option value="whatsapp">whatsapp</option>
+              <option value="telegram">telegram</option>
+              <option value="x">X</option>
+              <option value="instagram">instagram</option>
+              <option value="tiktok">tiktok</option>
+              <option value="other">other</option>
+            </select>
+            <div class="helper">When selected, a field will appear for the ID or URL (optional validation).</div>
+          </div>
+          <div id="contact-id-wrap" style="display:none;">
+            <label for="contact-id">Contact ID / URL</label>
+            <input type="text" id="contact-id" name="contact-id" placeholder="@username or https://…">
+            <div class="helper">Optional.</div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pet information</legend>
+        <div class="grid grid-2">
+          <div>
+            <label for="type">Type</label>
+            <select id="type" name="type">
+              <option value="">Select one…</option>
+              <option value="dog">dog</option>
+              <option value="cat">cat</option>
+            </select>
+            <div class="helper">Obligatory.</div>
+          </div>
+          <div>
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" name="amount" min="1" step="1" inputmode="numeric" placeholder="1">
+            <div class="helper">Integer ≥ 1.</div>
+          </div>
+          <div>
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="1" step="1" inputmode="numeric" placeholder="e.g., 2">
+            <div class="helper">Integer ≥ 1.</div>
+          </div>
+          <div>
+            <label for="age-unit">Measure unit for age</label>
+            <select id="age-unit" name="age-unit">
+              <option value="">Select…</option>
+              <option value="months">months</option>
+              <option value="years">years</option>
+            </select>
+            <div class="helper">Obligatory.</div>
+          </div>
+          <div>
+            <label for="delivery">Date available for delivery</label>
+            <input type="datetime-local" id="delivery" name="delivery">
+            <div class="helper">Prefilled to now + 3h. Must be in <code>YYYY-MM-DDTHH:mm</code> and ≥ prefilled value.</div>
+          </div>
+          <div>
+            <label for="desc">Description</label>
+            <textarea id="desc" name="desc" cols="50" rows="10" placeholder="Optional notes…"></textarea>
+          </div>
+        </div>
+
+        <div style="margin-top:8px;">
+          <label>Photos (1–5)</label>
+          <div id="photos-wrap" class="grid" style="gap:8px;"></div>
+          <div class="inline" style="margin-top:8px;">
+            <button type="button" class="btn" id="btn-add-photo">Add another photo</button>
+            <button type="button" class="btn ghost" id="btn-remove-photo">Remove last</button>
+            <span class="helper">Accepted: any file, this is a prototype.</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="inline" style="margin-top:12px;">
+        <button type="button" class="btn ok" id="btn-submit">Add this adoption notice</button>
+        <a class="btn-link" href="index.html">Cancel</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Confirmation modal -->
+  <div class="modal" id="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+    <div class="modal-card">
+      <div style="color:#fff; padding: 8px;">
+        <h2 id="confirm-title" style="margin:0 0 8px;">Are you sure you want to add this adoption notice?</h2>
+        <div class="modal-actions">
+          <button class="btn ok" id="confirm-yes">Yes, I am</button>
+          <button class="btn warn" id="confirm-no">No, I am not sure, I want to return to the form</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success screen modal -->
+  <div class="modal" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="success-title">
+    <div class="modal-card">
+      <div style="color:#fff; padding: 8px;">
+        <h2 id="success-title" style="margin:0 0 8px;">We have received the adoption information, thank you very much and good luck!</h2>
+        <div class="modal-actions">
+          <a class="btn ok" href="index.html">Return to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

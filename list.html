@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Adoption Listings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="styles.css" rel="stylesheet">
+  <script src="data.js" defer></script>
+  <script src="list.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">Adopt-a-Pet (Prototype)</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="add.html">Add a notice</a>
+        <a href="stats.html">Statistics</a>
+      </nav>
+    </header>
+
+    <h1>Adoption notices</h1>
+    <p class="muted">Click any row to view the full notice.</p>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date of publication</th>
+          <th>Date of delivery</th>
+          <th>Commune</th>
+          <th>Sector</th>
+          <th>Quantity Type Age</th>
+          <th>Name Contact</th>
+          <th>Total photos</th>
+        </tr>
+      </thead>
+      <tbody id="list-body"></tbody>
+    </table>
+  </div>
+</body>
+</html>
+
